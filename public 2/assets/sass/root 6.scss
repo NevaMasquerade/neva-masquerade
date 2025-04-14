@@ -1,0 +1,390 @@
+/* CODESTITCH STYLES, RESET, HEADER/NAVIGATION AND FOOTER */
+
+/*-- -------------------------- -->
+<---        Core Styles         -->
+<--- -------------------------- -*/
+
+/* CodeStitch Root and Helpers */
+@media only screen and (min-width: 0rem) {
+    // Website colors
+    :root {
+        --primary100: #c5d9e5;
+        --primary200: #9bb9cc;
+        --primary300: #6d90a6;
+        --primary400: #486a80;
+        --primary: #294759;
+        --primary600: #122633;
+        --primary700: #071219;
+        --secondary: #e5dbd1;
+        --secondary200: #ccb7a5;
+        --secondary300: #a6917e;
+        --secondary400: #806c5b;
+        --secondary500: #59493b;
+        --secondary600: #33281f;
+        --accent100: #e5bbb8;
+        --accent200: #cc948f;
+        --accent300: #a66963;
+        --accent400: #804540;
+        --accent500: #592824;
+        --accent600: #33120f;
+        --accent700: #190705;
+        --textLight: #fffaf0;
+        --textMid: #656360;
+        --textDark: #262524;
+
+        /* 13px - 16px */
+        --topperFontSize: clamp(0.8125rem, 1.6vw, 1rem);
+        /* 31px - 49px */
+        --headerFontSize: clamp(1.9375rem, 3.9vw, 3.0625rem);
+        --bodyFontSize: 1rem;
+
+        /* 60px - 100px top and bottom */
+        --sectionPadding: clamp(3.75rem, 7.82vw, 6.25rem) 1rem;
+
+        --headerFont: 'Baskerville', 'Times New Roman', serif;
+        --bodyFont: 'Montserrat', 'Arial', sans-serif;
+        --smallCaps: 'Contralto Small', 'Arial', sans-serif;
+
+        body {
+            background: var(--textLight);
+        }
+    }
+
+    :target {
+        scroll-margin-top: 89px; /* Navigation height for jump links */
+      }
+
+    // Text styles - can be replaced using CodeStitch's "Content Flair" Stitches
+    .cs-topper {
+        display: block;
+        margin-bottom: 0.25rem;
+        text-transform: uppercase;
+        font-family: var(--smallCaps);
+        letter-spacing: 2px;
+        font-size: var(--topperFontSize);
+        line-height: 1.2em;
+        font-weight: 300;
+        color: var(--accent500);
+        text-align: inherit;
+    }
+
+    .cs-title {
+        position: relative;
+        margin: 0 0 1rem 0;
+        max-width: 43.75rem;
+        font-size: var(--headerFontSize);
+        line-height: 1.2em;
+        font-weight: 400;
+        color: var(--textDark);
+        text-align: inherit;
+    }
+
+    .cs-text {
+        margin: 0;
+        max-width: 40.625rem;
+        width: 100%;
+        font-family: var(--bodyFont);
+        font-size: var(--bodyFontSize);
+        line-height: 1.5em;
+        color: var(--textDark);
+        text-align: inherit;
+    }
+                                    
+    // Button - can be replaced using CodeStitch's "Button" Stitches
+    .cs-button-solid {
+        z-index: 1;
+        position: relative;
+        display: inline-block;
+        background: #A2635D;
+        width: auto;
+        padding: 0 calc(30 / 16 * 1rem);
+        font-family: var(--smallCaps);
+        text-decoration: none;
+        text-transform: uppercase;
+        font-size: calc(16 / 16 * 1rem);
+        line-height: calc(48 / 16 * 1em);
+        letter-spacing: 3px;
+        font-weight: 600;
+        filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, .3));
+        box-shadow: inset 0 0 2rem rgba(0, 0, 0, 0.3);
+
+        // Transition Properties
+        color: var(--textLight);
+        transition: color 0.3s;
+        transition-delay: 0.1s;
+        text-align: center;
+
+        &:visited {
+            color: var(--textLight);
+        }
+
+        &:hover {
+            &:before {
+                width: 100%;
+            }
+        }
+
+        &:before {
+            z-index: -1;
+            position: absolute;
+            top: 0;
+            left: 0;
+            content: "";
+            opacity: 1;
+            display: block;
+            background: var(--primary400);
+            height: 100%;
+            box-shadow: inset 0 0 2rem rgba(0, 0, 0, 0.4);
+            //Transition properties
+            width: 0;
+            transition: width 0.3s;
+        }
+    }
+
+    .cs-button-solid:hover {
+        color: var(--textLight);
+    }
+
+    .nm-honeypot {
+        display: none;
+    }
+
+    .cs-hide-on-mobile {
+        display: none;
+    }
+}
+
+/* Desktop - 1024px */
+@media only screen and (min-width: 64rem) {
+    .cs-hide-on-mobile {
+        display: block;
+    }
+
+    .cs-hide-on-desktop {
+        display: none;
+    }
+}
+
+/* Fonts and general styles */
+@media only screen and (min-width: 0rem) {
+    body,
+    html {
+        margin: 0;
+        overflow-x: hidden;
+        padding: 0;
+        font-family: var(--bodyFont);
+        font-size: 100%;
+        color: var(--textDark);
+    }
+
+    *,
+    *:before,
+    *:after {
+        margin: 0;
+        box-sizing: border-box;
+        padding: 0;
+    }
+
+    body {
+        transition: background-color 0.3s;
+    }
+
+    .container {
+        position: relative;
+        margin: auto;
+        width: 92%;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        margin: 0;
+        color: var(--textDark);
+        font-family: var(--headerFont);
+    }
+
+    p,
+    li,
+    a {
+        margin: 0;
+        font-size: calc(16 / 16 * 1rem);
+        font-family: var(--bodyFont);
+        line-height: 1.5em;
+    }
+
+    a {
+        color: var(--primary);
+        font-weight: 600;
+        text-underline-offset: .12em;
+      
+        &:visited {
+          color: var(--accent500);
+        }
+      
+        &:hover {
+          color: var(--primary600);
+        }
+      }
+
+    p,
+    li {
+        color: var(--textDark);
+    }
+
+    ul {
+        margin-top: -.5rem;
+        margin-bottom: 1rem;
+        margin-left: 1rem;
+    }
+
+    li {
+        color: var(--textDark);
+        font-size: .9rem;
+        font-family: var(--bodyFont);
+        list-style-image: url(../svgs/diamond.svg);
+        list-style-position: outside;
+        padding-left: .5em;
+        margin-bottom: .25rem;
+    }
+
+    a,
+    button {
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    // Hidden Screen reader skip nav button
+    .skip {
+        z-index: -1111111;
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+    }
+    // Grab your fonts to locally host from https://google-webfonts-helper.herokuapp.com/fonts
+
+    /* Baskerville - Regular */
+    @font-face {
+        font-style: normal;
+        font-family: "Baskerville";
+        font-weight: 400;
+        font-display: swap;
+        src: 
+            local(""),
+            url("../fonts/baskervville-v16-latin-regular.woff2") format("woff2");
+    }
+
+    /* Baskerville - Italic */
+    @font-face {
+        font-style: italic;
+        font-family: "Baskerville";
+        font-weight: 400;
+        font-display: swap;
+        src: 
+            local(""),
+            url("../fonts/baskervville-v16-latin-italic.woff2") format("woff2");
+    }
+
+    /* Contralto Small - Light */
+    @font-face {
+        font-style: normal;
+        font-family: "Contralto Small";
+        font-weight: 300;
+        font-display: swap;
+        src: 
+            local(""),
+            url("../fonts/ContraltoSmallLight/font.woff2") format("woff2"), 
+            url("../fonts/ContraltoSmallLight/font.woff") format("woff");
+    }
+
+    /* Contralto Small - Regular */
+    @font-face {
+        font-style: normal;
+        font-family: "Contralto Small";
+        font-weight: 400;
+        font-display: swap;
+        src: 
+            local(""),
+            url("../fonts/ContraltoSmallRegular/font.woff2") format("woff2"), 
+            url("../fonts/ContraltoSmallRegular/font.woff") format("woff");
+    }
+   
+    /* Contralto Small - Demi Bold */
+    @font-face {
+        font-style: normal;
+        font-family: "Contralto Small";
+        font-weight: 600;
+        font-display: swap;
+        src: 
+            local(""),
+            url("../fonts/ContraltoSmallDemiBold/font.woff2") format("woff2"), 
+            url("../fonts/ContraltoSmallDemiBold/font.woff") format("woff");
+    }
+
+    /* Montserrat Regular */
+    @font-face {
+        font-style: normal;
+        font-family: "Montserrat";
+        font-weight: 400;
+        font-display: swap;
+        src: 
+            local(""),
+            url("../fonts/Montserrat/montserrat-v29-latin-regular.woff2") format("woff2");
+    }
+
+    /* Montserrat Italic */
+    @font-face {
+        font-style: italic;
+        font-family: "Montserrat";
+        font-weight: 400;
+        font-display: swap;
+        src: 
+            local(""),
+            url("../fonts/Montserrat/montserrat-v29-latin-italic.woff2") format("woff2");
+    }
+
+    /* Montserrat Bold Regular */
+    @font-face {
+        font-style: normal;
+        font-family: "Montserrat";
+        font-weight: 600;
+        font-display: swap;
+        src: 
+            local(""),
+            url("../fonts/Montserrat/montserrat-v29-latin-600.woff2") format("woff2");
+    }
+
+    /* Montserrat Bold Italic */
+    @font-face {
+        font-style: italic;
+        font-family: "Montserrat";
+        font-weight: 600;
+        font-display: swap;
+        src: 
+            local(""),
+            url("../fonts/Montserrat/montserrat-v29-latin-600italic.woff2") format("woff2");
+    }
+}
+
+/* Reset Margins */
+@media only screen and (min-width: 1024px) {
+    body,
+    html {
+        margin: 0;
+        padding: 0;
+    }
+}
+
+/* Scale full website with the viewport width */
+@media only screen and (min-width: 3000px) {
+    body,
+    html {
+        font-size: 0.55vw;
+    }
+}
+                                           
+
